@@ -5,6 +5,7 @@ const router=express.Router();
 
 router.post('/create-product',productController.CreateProduct)
 router.get('/',productController.getProduct)
+router.get('/search',productController.getSingleProductByTag)
 router.get('/:productId',productController.getSingleProduct)
 router.put('/:productId',productController.getSingleProductUpdate)
 router.delete('/:productId',productController.deleteSingleProduct)

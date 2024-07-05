@@ -34,8 +34,16 @@ const DeleteData=async(_id:string)=>
     return result;
 }
 
+//get product by tags
+
+const getProductByTag=async(tag:string)=>
+{
+    const result=await productsmodel.find({ tags: { $in: [tag] } })
+    return result;
+}
+
 
 export const productService={
-    createProductDb,getProducts,getSingleProduct,DeleteData,getSingleProductUpdate
+    createProductDb,getProducts,getSingleProduct,DeleteData,getSingleProductUpdate,getProductByTag
 }
 

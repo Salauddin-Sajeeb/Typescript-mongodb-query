@@ -119,8 +119,33 @@ const getSingleProductUpdate=async(req:Request,res:Response)=>
     }         
         }    
     
-
+const getSingleProductByTag=async(req:Request,res:Response)=>
+ {
+    try{
+     const { tag } = req.query;
+     if (typeof tag !== 'string') {
+        throw new Error('Invalid tag parameter');
+    }
+        const result=await productService.getProductByTag(tag)
+        res.status(200).json({
+         success:true,
+        message:'data retreated by tag',
+        data:result         
+         })
+            
+     }
+    catch(err:any)
+    {
+      res.status(500).json({
+      success:false,
+      message:err.message||'somethig went wrong!',
+      error:err,   
+    })
+  }
+                           
+                }
+            
 
 export const productController={
-    CreateProduct,getProduct,getSingleProduct,deleteSingleProduct,getSingleProductUpdate
+    CreateProduct,getProduct,getSingleProduct,deleteSingleProduct,getSingleProductUpdate,getSingleProductByTag
 }
