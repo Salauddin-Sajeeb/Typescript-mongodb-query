@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import { productService } from "./product.service";
+
 
 //create product
 const CreateProduct= async (req:Request,res:Response)=>
@@ -8,7 +10,6 @@ try
 {
 
 const product=req.body;
-
 const result= await productService.createProductDb(product);
 res.status(200).json({
     success:true,
@@ -18,6 +19,7 @@ res.status(200).json({
 }
 catch(err:any)
 {
+   
   res.status(500).json({
        success:false,
        message:err.message||'something went wrong!',
@@ -135,6 +137,7 @@ const getSingleProductByTag=async(req:Request,res:Response)=>
             
      }
     catch(err:any)
+    
     {
       res.status(500).json({
       success:false,
@@ -143,7 +146,7 @@ const getSingleProductByTag=async(req:Request,res:Response)=>
     })
   }
                            
-                }
+ }
             
 
 export const productController={
