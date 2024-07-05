@@ -14,12 +14,12 @@ const ProductsSchema = new Schema<Products>({
     description: { type: String, required: true },
     price: { type: Number, required: true },
     category: { type: String, required: true },
-    tags: { type: [String], required: true },
+    tags: { type: [String], required: true, _id:false },
     variants: [{
         type: { type: String, required: true },
-        value: { type: String, required: true }
-    }],
-    inventory: inventorySchema
+        value: { type: String, required: true },_id:false
+    }] ,
+    inventory: {inventorySchema,_id:false},
         
     
 }); 
