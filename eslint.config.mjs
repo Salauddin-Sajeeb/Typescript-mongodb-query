@@ -10,7 +10,7 @@ export default [
     ignores: ["node_modules", "dist", ".src/config"],
     rules: {
       "no-unused-vars": "error",
-      "no-undef": "error",
+     "no-undef": "error",
     },
   },
 ];
